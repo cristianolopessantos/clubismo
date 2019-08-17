@@ -1,0 +1,13 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const routes = require('./routes');
+const cors = require('cors');
+
+const server = express();
+mongoose.connect('mongodb+srv://clubismo:clubismo@cluster0-rz9om.mongodb.net/test?retryWrites=true&w=majority', {
+  useNewUrlParser: true
+});
+server.use(cors());
+server.use(express.json());
+server.use(routes);
+server.listen(3030);
